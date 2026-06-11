@@ -2,13 +2,14 @@
 
 ## Final repository split
 
-Separate repositories are recommended because they enforce clearer ownership and reduce the chance that vertical language leaks into the Core.
+Separate repositories are required for this project because they enforce clearer ownership and reduce the chance that vertical language leaks into the Core.
 
 ```text
 livecore-docs-handoff
 livecore-platform
 livecore-deploy
 arcanos-app
+arcanos-mobile
 scenarioos-enterprise
 ```
 
@@ -17,7 +18,8 @@ scenarioos-enterprise
 Benefits:
 
 - Core stays product-neutral
-- ArcanOS can move faster without polluting Core
+- ArcanOS Web can move fast without polluting Core
+- ArcanOS Mobile can handle App Store / Google Play topics without polluting the web app or Core
 - ScenarioOS can remain private or commercially licensed
 - deployment logic is reusable across products
 - LLMs receive smaller context windows
@@ -42,10 +44,12 @@ Purpose:
 - defines LLM process
 - defines architecture decision records
 - stores global product boundaries
+- stores mobile App Store governance
 
 First action:
 
 - copy `repos/livecore-docs-handoff/` into the repo
+- copy root templates into the repo if you want one central governance source
 - commit docs only
 - do not implement product code here
 
@@ -54,7 +58,7 @@ First action:
 Purpose:
 
 - owns the generic Core Platform
-- owns API, database, realtime, permission engine, audit, assets, SDK contracts and generic UI primitives
+- owns API, database, realtime, permission engine, audit, assets, SDK contracts, generic UI primitives, entitlements, quotas and purchase verification contracts
 
 First implementation milestone:
 
@@ -66,7 +70,7 @@ First implementation milestone:
 - health endpoint
 - boundary check script
 
-No ArcanOS code is allowed here.
+No ArcanOS, mobile UI or ScenarioOS code is allowed here.
 
 ### 3. livecore-deploy
 
@@ -77,6 +81,7 @@ Purpose:
 - owns Railway deployment references
 - owns backup/restore scripts
 - owns production operations docs
+- owns mobile store backend operations docs
 
 Start after `livecore-platform` has a bootable API container.
 
@@ -84,9 +89,9 @@ Start after `livecore-platform` has a bootable API container.
 
 Purpose:
 
-- Pen-and-Paper / DnD / tabletop vertical
+- Pen-and-Paper / 5e-compatible / tabletop web vertical
 - consumes Core API, Core SDK and Core UI primitives
-- owns ArcanOS domain labels, templates, theme, Player Companion and DM/GM experience
+- owns ArcanOS domain labels, templates, theme, Player Companion web/PWA and DM/GM experience
 
 Start after Core has stable contracts for:
 
@@ -102,17 +107,45 @@ SessionEvent
 Asset
 ```
 
-### 5. scenarioos-enterprise
+### 5. arcanos-mobile
+
+Purpose:
+
+- native iOS/Android app for ArcanOS
+- consumes Core API, Core SDK/contracts and ArcanOS labels/templates
+- owns mobile UX, player companion, join session, push notifications later, ads, premium/paywall UI and store release workflow
+
+Start after Core has stable contracts for:
+
+```text
+Auth
+Workspace
+Session
+Participant
+Scene
+ContentBlock
+Entity
+VisibilityRule
+SessionEvent
+Asset
+Entitlements
+Quota Status
+Ad Eligibility
+```
+
+Start with mobile shell and mocked billing/ads. Do not integrate real store SDKs until backend purchase verification exists.
+
+### 6. scenarioos-enterprise
 
 Purpose:
 
 - enterprise training/simulation/workshop vertical
 - consumes Core API and SDK
-- owns enterprise-specific templates, reports and role terminology
+- owns enterprise-specific templates, reports, role terminology and compliance UX
 
 Start only after:
 
-- Core boundary is proven by ArcanOS
+- Core boundary is proven by ArcanOS Web and/or ArcanOS Mobile
 - authorization matrix is implemented
 - audit log is implemented
 - export/report foundations exist

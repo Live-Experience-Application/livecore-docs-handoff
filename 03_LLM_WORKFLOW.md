@@ -86,3 +86,26 @@ Correct prompt:
 ```text
 Implement story CORE-001 only. Read AGENTS.md and the specified docs. Do not implement any other story.
 ```
+
+## Mobile tasks
+
+Mobile tasks use `templates/MOBILE_STORY_PROMPT_TEMPLATE.md` and rows from:
+
+```text
+repos/arcanos-mobile/csv/mobile_epics_stories.csv
+```
+
+Mobile LLM tasks must not implement real App Store, Google Play Billing or ad SDK integrations until the backend contracts for Entitlements, Quotas, Purchase Verification and Ad Eligibility exist.
+
+Forbidden mobile shortcut:
+
+```text
+Unlock premium locally because purchase succeeded on device.
+```
+
+Correct mobile approach:
+
+```text
+Send purchase token/JWS to backend.
+Render premium only after backend entitlement confirms it.
+```

@@ -123,3 +123,57 @@ A feature is not done until it has:
 - documentation update
 - migration if DB changes
 - threat model update if security relevant
+
+## Gate 8: Entitlement and quota enforcement
+
+Premium state and usage limits are server-side concerns.
+
+Bad:
+
+```text
+Mobile app stores isPremium=true and unlocks all limits locally.
+```
+
+Good:
+
+```text
+Mobile app displays premium only after Core returns active entitlements.
+Core enforces quotas on protected commands.
+```
+
+## Gate 9: Ads boundary
+
+Core may return ad eligibility. Core must not render ads or know ad placements.
+
+Allowed in Core:
+
+```text
+GET /v1/me/ad-eligibility
+ads.required
+ads.disabled
+hosted_sessions.ads.disabled
+```
+
+Forbidden in Core domain logic:
+
+```text
+BannerAd
+InterstitialAd
+RewardedAd
+AdMob placement IDs
+ATT prompt copy
+App Store paywall copy
+Google Play product copy
+```
+
+## Gate 10: Store receipt verification
+
+Store purchase tokens and App Store transaction data must be verified by the backend before entitlements are granted.
+
+Required:
+
+- idempotent notification handling
+- refunds and cancellations downgrade entitlements
+- purchase state changes are auditable
+- client premium flags are never trusted
+```

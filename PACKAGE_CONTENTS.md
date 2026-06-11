@@ -1,3 +1,7 @@
+# Package Contents
+
+Generated from the complete final handoff package.
+
 00_BEFORE_LLM_CHECKLIST.md
 01_REPO_CREATION_ORDER.md
 02_MANUAL_SETUP_CHECKLIST.md
@@ -5,6 +9,9 @@
 04_BOUNDARY_AND_SECURITY_GATES.md
 05_HUMAN_REVIEW_CHECKLIST.md
 06_REFERENCES.md
+07_MOBILE_APPSTORE_DECISION_RECORD.md
+08_REPO_COPY_UPDATE_INSTRUCTIONS.md
+09_FIRST_LLM_TASKS.md
 README.md
 repos/arcanos-app/AGENTS.md
 repos/arcanos-app/README.md
@@ -25,6 +32,28 @@ repos/arcanos-app/docs/10_API_CONSUMPTION.md
 repos/arcanos-app/docs/11_PWA_OFFLINE.md
 repos/arcanos-app/docs/12_TESTING_STRATEGY.md
 repos/arcanos-app/docs/13_REFERENCE_DESIGNS.md
+repos/arcanos-app/docs/14_WEB_MOBILE_PARITY.md
+repos/arcanos-mobile/AGENTS.md
+repos/arcanos-mobile/README.md
+repos/arcanos-mobile/csv/ad_placement_policy.csv
+repos/arcanos-mobile/csv/mobile_epics_stories.csv
+repos/arcanos-mobile/csv/store_compliance_checklist.csv
+repos/arcanos-mobile/csv/store_products.csv
+repos/arcanos-mobile/docs/00_START_HERE.md
+repos/arcanos-mobile/docs/01_MOBILE_PRODUCT_SCOPE.md
+repos/arcanos-mobile/docs/02_ARCHITECTURE.md
+repos/arcanos-mobile/docs/03_MONETIZATION_AND_ENTITLEMENTS.md
+repos/arcanos-mobile/docs/04_ADS_POLICY.md
+repos/arcanos-mobile/docs/05_STORE_COMPLIANCE.md
+repos/arcanos-mobile/docs/06_SECURITY_AND_PRIVACY.md
+repos/arcanos-mobile/docs/07_DND_IP_AND_CONTENT.md
+repos/arcanos-mobile/docs/08_OFFLINE_AND_SYNC.md
+repos/arcanos-mobile/docs/09_RELEASE_PROCESS.md
+repos/arcanos-mobile/docs/10_API_CONSUMPTION.md
+repos/arcanos-mobile/docs/11_UI_NAVIGATION_AND_DESIGN_TOKENS.md
+repos/arcanos-mobile/docs/12_TESTING_STRATEGY.md
+repos/arcanos-mobile/docs/13_RELEASE_CHECKLIST.md
+repos/arcanos-mobile/docs/14_DEFINITION_OF_DONE.md
 repos/livecore-deploy/AGENTS.md
 repos/livecore-deploy/README.md
 repos/livecore-deploy/csv/deploy_epics_stories.csv
@@ -40,6 +69,7 @@ repos/livecore-deploy/docs/06_BACKUP_RESTORE.md
 repos/livecore-deploy/docs/07_OBSERVABILITY.md
 repos/livecore-deploy/docs/08_HARDENING.md
 repos/livecore-deploy/docs/09_RELEASES.md
+repos/livecore-deploy/docs/10_MOBILE_STORE_BACKEND_OPERATIONS.md
 repos/livecore-docs-handoff/AGENTS.md
 repos/livecore-docs-handoff/README.md
 repos/livecore-docs-handoff/docs/00_START_HERE.md
@@ -50,14 +80,20 @@ repos/livecore-docs-handoff/docs/04_RELEASE_GOVERNANCE.md
 repos/livecore-docs-handoff/docs/05_BACKLOG_GOVERNANCE.md
 repos/livecore-docs-handoff/docs/06_HUMAN_REVIEW_GUIDE.md
 repos/livecore-docs-handoff/docs/07_AI_AGENT_ASSIGNMENTS.md
+repos/livecore-docs-handoff/docs/08_MOBILE_APPSTORE_GOVERNANCE.md
+repos/livecore-docs-handoff/docs/09_MOBILE_AND_VERTICAL_REPO_GOVERNANCE.md
 repos/livecore-platform/AGENTS.md
 repos/livecore-platform/README.md
 repos/livecore-platform/csv/api_routes.csv
 repos/livecore-platform/csv/authorization_matrix.csv
 repos/livecore-platform/csv/core_epics_stories.csv
 repos/livecore-platform/csv/database_tables.csv
+repos/livecore-platform/csv/entitlement_database_tables.csv
+repos/livecore-platform/csv/entitlement_event_catalog.csv
 repos/livecore-platform/csv/event_catalog.csv
 repos/livecore-platform/csv/forbidden_core_terms.csv
+repos/livecore-platform/csv/mobile_entitlement_catalog.csv
+repos/livecore-platform/csv/mobile_store_api_routes.csv
 repos/livecore-platform/docs/00_START_HERE.md
 repos/livecore-platform/docs/01_PRODUCT_VISION_AND_SCOPE.md
 repos/livecore-platform/docs/02_ARCHITECTURE.md
@@ -79,6 +115,8 @@ repos/livecore-platform/docs/17_DEFINITION_OF_DONE.md
 repos/livecore-platform/docs/18_EPICS_AND_STORIES.md
 repos/livecore-platform/docs/19_FORBIDDEN_CORE_TERMS.md
 repos/livecore-platform/docs/20_ADR_INDEX.md
+repos/livecore-platform/docs/21_ENTITLEMENTS_QUOTAS_AND_STORE_RECEIPTS.md
+repos/livecore-platform/docs/22_ADS_AND_MOBILE_BILLING_BOUNDARIES.md
 repos/livecore-platform/docs/adr/0001-modular-monolith.md
 repos/livecore-platform/docs/adr/0002-separate-vertical-repositories.md
 repos/livecore-platform/docs/adr/0003-core-domain-language.md
@@ -88,6 +126,8 @@ repos/livecore-platform/docs/adr/0006-s3-compatible-storage.md
 repos/livecore-platform/docs/adr/0007-pwa-first-verticals.md
 repos/livecore-platform/docs/adr/0008-server-side-visibility-enforcement.md
 repos/livecore-platform/docs/adr/0009-agpl-and-dual-licensing-strategy.md
+repos/livecore-platform/docs/adr/0010-core-owned-entitlements-and-quotas.md
+repos/livecore-platform/docs/adr/0011-mobile-ads-stay-outside-core.md
 repos/scenarioos-enterprise/AGENTS.md
 repos/scenarioos-enterprise/README.md
 repos/scenarioos-enterprise/csv/core_mapping.csv
@@ -99,6 +139,7 @@ repos/scenarioos-enterprise/docs/03_ARCHITECTURE.md
 repos/scenarioos-enterprise/docs/04_ENTERPRISE_SECURITY.md
 repos/scenarioos-enterprise/docs/05_REPORTING_AND_DEBRIEF.md
 repos/scenarioos-enterprise/docs/06_TEMPLATES.md
+templates/MOBILE_STORY_PROMPT_TEMPLATE.md
 templates/PR_REVIEW_PROMPT_TEMPLATE.md
 templates/SECURITY_REVIEW_PROMPT.md
 templates/STORY_PROMPT_TEMPLATE.md

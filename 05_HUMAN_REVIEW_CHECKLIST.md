@@ -55,3 +55,13 @@ Use this before merging any LLM-generated PR.
 ## Merge decision
 
 Merge only if all critical checks pass. If unsure, do not merge.
+
+## Mobile-specific review
+
+- [ ] No real billing SDK integration before backend verification endpoints exist
+- [ ] No premium unlock based only on client state
+- [ ] No ad placement inside live reveal or private message flows
+- [ ] No raw DnD/Wizards branding that implies official endorsement
+- [ ] Privacy, ads and tracking behavior are documented before store release
+- [ ] Mobile cache stores only content already authorized by the server
+- [ ] Logout clears tokens and visible-content cache
